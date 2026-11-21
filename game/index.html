@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LAMPBLACK: The Gilded Vault — a stealth heist game</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #0b0a12; color: #f3e9d2; font-family: monospace; }
+  #game-shell { width: 960px; margin: 14px auto; }
+  #hud-bar { display: flex; align-items: center; gap: 14px; background: #17141f; border: 1px solid #3a3348; padding: 8px 12px; box-sizing: border-box; }
+  #hud-level { color: #ffcf5a; font-weight: bold; font-size: 13px; white-space: nowrap; }
+  #hud-loot { color: #ffe9a8; font-size: 13px; white-space: nowrap; }
+  #hud-score { color: #9adfe8; font-size: 13px; white-space: nowrap; }
+  #hud-gadgets { color: #cdbffa; font-size: 12px; flex: 1; white-space: nowrap; }
+  #hud-detection-wrap { width: 130px; height: 12px; background: #262233; border: 1px solid #4a4258; }
+  #hud-detection-fill { height: 100%; width: 0%; background: #3fd68c; transition: width 0.1s linear; }
+  .hud-button { background: #2b2438; color: #f3e9d2; border: 1px solid #57496e; font-family: monospace; padding: 4px 9px; cursor: pointer; }
+  .hud-button:hover { background: #3a2f4d; }
+  #hud-hint { min-height: 18px; padding: 5px 12px; background: #100e18; border: 1px solid #3a3348; border-top: none; color: #ffd98a; font-size: 13px; box-sizing: border-box; }
+  #game-canvas { display: block; background: #23202b; border: 1px solid #3a3348; border-top: none; }
+  #controls-line { padding: 8px 2px; color: #8f887a; font-size: 12px; }
+</style>
+</head>
+<body>
+<div id="game-shell">
+  <div id="hud-bar">
+    <span id="hud-level">LAMPBLACK</span>
+    <span id="hud-loot">Loot 0 / 0</span>
+    <span id="hud-score">Score 0</span>
+    <span id="hud-gadgets"></span>
+    <div id="hud-detection-wrap" title="Detection meter — fill it and you are caught; break line of sight to let it fade"><div id="hud-detection-fill"></div></div>
+    <button class="hud-button" id="btn-pause" type="button">Pause</button>
+    <button class="hud-button" id="btn-restart" type="button">Restart</button>
+    <button class="hud-button" id="btn-mute" type="button">Mute</button>
+  </div>
+  <div id="hud-hint"></div>
+  <canvas id="game-canvas" width="960" height="576"></canvas>
+  <div id="controls-line">WASD / arrows move · Q then click: throw pebble · F: smoke bomb · E: EMP (cameras + lasers off) · P: pause · R: restart floor · M: mute · Hide in dark shadow zones — guards can barely see you there.</div>
+</div>
+<script src="src/config.js"></script>
+<script src="src/levels.js"></script>
+<script src="src/audio.js"></script>
+<script src="src/input.js"></script>
+<script src="src/guards.js"></script>
+<script src="src/gadgets.js"></script>
+<script src="src/render.js"></script>
+<script src="src/shots.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>
